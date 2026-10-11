@@ -44,10 +44,7 @@
             android:configChanges="uiMode|fontScale|density|orientation|screenSize|screenLayout|keyboardHidden"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/Theme.HermesRelay.Splash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- LAUNCHER intent-filter moved to activity-alias for dynamic icon switching -->
             <!-- User-mediated sharesheet handoff. Shared text and files open in
                  a fresh reviewable Chat draft; external intents never send. -->
             <intent-filter>
@@ -80,6 +77,34 @@
                 <category android:name="android.intent.category.VOICE" />
             </intent-filter>
         </activity>
+
+        <!-- Dynamic launcher icon: enabled state — shown when master toggle is ON -->
+        <activity-alias
+            android:name=".MainActivityEnabled"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_enabled"
+            android:label="@string/app_name"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- Dynamic launcher icon: disabled state — shown when master toggle is OFF -->
+        <activity-alias
+            android:name=".MainActivityDisabled"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher_disabled"
+            android:label="@string/app_name"
+            android:targetActivity=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
 
         <activity
             android:name=".assistant.AssistantLaunchActivity"

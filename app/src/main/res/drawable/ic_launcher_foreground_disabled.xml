@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Hermes-Relay foreground icon — DISABLED state
+    Grayed-out chevron compass + red status dot badge (top-right).
+    Viewport 108x108.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Scale artwork to 75% around center (54,54) for adaptive icon safe zone -->
+    <group
+        android:scaleX="0.75"
+        android:scaleY="0.75"
+        android:pivotX="54"
+        android:pivotY="54">
+
+        <!-- ═══ Ghost layer: V-crossbar + diagonal feathers — grayed out ═══ -->
+
+        <!-- Crossbar + wings (V shape) -->
+        <path
+            android:pathData="M17.6,36.8 L37.8,57 L70.2,57 L90.4,36.8"
+            android:strokeWidth="4.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:strokeColor="#44666666"/>
+
+        <!-- Top-left feather -->
+        <path
+            android:pathData="M17.6,18.6 L37.8,38.8"
+            android:strokeWidth="4.5"
+            android:strokeLineCap="round"
+            android:strokeColor="#44666666"/>
+
+        <!-- Top-right feather -->
+        <path
+            android:pathData="M90.4,18.6 L70.2,38.8"
+            android:strokeWidth="4.5"
+            android:strokeLineCap="round"
+            android:strokeColor="#44666666"/>
+
+        <!-- ═══ Drop shadow — grayed out ═══ -->
+
+        <path
+            android:pathData="M54,43.5 L66,55.5 L54,67.5 L42,55.5 Z"
+            android:strokeColor="#1A333333"
+            android:strokeWidth="7.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"/>
+        <path
+            android:pathData="M30,43.5 L54,19.5 L78,43.5"
+            android:strokeColor="#1A333333"
+            android:strokeWidth="7.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"/>
+        <path
+            android:pathData="M30,67.5 L54,91.5 L78,67.5"
+            android:strokeColor="#1A333333"
+            android:strokeWidth="7.5"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"/>
+
+        <!-- ═══ Foreground: Chevron Compass — grayed out ═══ -->
+
+        <!-- Central diamond -->
+        <path
+            android:pathData="M54,42 L66,54 L54,66 L42,54 Z"
+            android:strokeWidth="6.75"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:strokeColor="#88666666"/>
+
+        <!-- Upper chevron -->
+        <path
+            android:pathData="M30,42 L54,18 L78,42"
+            android:strokeWidth="6.75"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:strokeColor="#88666666"/>
+
+        <!-- Lower chevron -->
+        <path
+            android:pathData="M30,66 L54,90 L78,66"
+            android:strokeWidth="6.75"
+            android:strokeLineCap="round"
+            android:strokeLineJoin="round"
+            android:strokeColor="#88666666"/>
+
+    </group>
+
+    <!-- Red status dot (DISABLED) — top-right corner -->
+    <path
+        android:pathData="M88,14 A6,6 0 1,1 88,26 A6,6 0 1,1 88,14 Z"
+        android:fillColor="#FF5555"
+        android:strokeColor="#1A1A2E"
+        android:strokeWidth="2"/>
+
+</vector>

@@ -1,6 +1,8 @@
 package com.hermesandroid.relay.data
 
+import android.content.ComponentName
 import android.content.Context
+import android.content.pm.PackageManager
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
@@ -107,6 +109,31 @@ class BridgePreferencesRepository(private val context: Context) {
             it[KEY_MASTER_ENABLED] = enabled
             it[KEY_LEGACY_MASTER_ENABLED] = false
         }
+        updateLauncherIcon(enabled)
+    }
+
+    /**
+     * Switches the launcher icon between enabled (green dot) and disabled
+     * (red dot, grayed out) to match the Device Control master toggle state.
+     * Uses DONT_KILL_APP so the switch is instant — no app restart needed.
+     */
+    private fun updateLauncherIcon(enabled: Boolean) {
+        val pm = context.packageManager
+        val enabledComponent = ComponentName(context, "${context.packageName}.MainActivityEnabled")
+        val disabledComponent = ComponentName(context, "${context.packageName}.MainActivityDisabled")
+
+        pm.setComponentEnabledSetting(
+            enabledComponent,
+            if (enabled) PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+            else PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+            PackageManager.DONT_KILL_APP
+        )
+        pm.setComponentEnabledSetting(
+            disabledComponent,
+            if (enabled) PackageManager.COMPONENT_ENABLED_STATE_DISABLED
+            else PackageManager.COMPONENT_ENABLED_STATE_ENABLED,
+            PackageManager.DONT_KILL_APP
+        )
     }
 
     /**
