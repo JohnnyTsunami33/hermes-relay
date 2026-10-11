@@ -119,8 +119,10 @@ class BridgePreferencesRepository(private val context: Context) {
      */
     private fun updateLauncherIcon(enabled: Boolean) {
         val pm = context.packageManager
-        val enabledComponent = ComponentName(context, "${context.packageName}.MainActivityEnabled")
-        val disabledComponent = ComponentName(context, "${context.packageName}.MainActivityDisabled")
+        // Activity-aliases resolve against the AGP namespace (com.hermesandroid.relay),
+        // not the flavor's applicationId (com.axiomlabs.hermesrelay.sideload).
+        val enabledComponent = ComponentName("com.hermesandroid.relay", "com.hermesandroid.relay.MainActivityEnabled")
+        val disabledComponent = ComponentName("com.hermesandroid.relay", "com.hermesandroid.relay.MainActivityDisabled")
 
         pm.setComponentEnabledSetting(
             enabledComponent,
